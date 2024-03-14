@@ -8,14 +8,14 @@ class Messages extends Translations {
           'home': 'Home',
           'search': 'Search',
           'explore': 'Explore',
-          'me': 'Me',
+          'profile': 'Profile',
         },
         'zh_CN': {
           'app_name': '阿凌博客',
           'home': '首页',
           'search': '搜索',
           'explore': '浏览',
-          'me': '我',
+          'profile': '个人中心',
         },
       };
 }

@@ -1,17 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:geeblog/pages/home/components/home_body.dart';
+import 'package:geeblog/pages/home/components/profile_body.dart';
+import 'package:geeblog/pages/home/components/search_body.dart';
 import 'package:get/utils.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('app_name'.tr),
+    return DefaultTabController(
+      length: 3,
+      initialIndex: 1,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('app_name'.tr),
+        ),
+        bottomNavigationBar: TabBar(tabs: [
+          Tab(icon: const Icon(Icons.home), text: 'home'.tr),
+          Tab(icon: const Icon(Icons.search), text: 'search'.tr),
+          Tab(icon: const Icon(Icons.person), text: 'profile'.tr),
+        ]),
+        body: const TabBarView(
+          children: [
+            HomeBody(),
+            SearchBody(),
+            ProfileBody(),
+          ],
+        ),
       ),
-      body: const HomeBody(),
     );
   }
 }
