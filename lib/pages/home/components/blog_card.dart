@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:geeblog/constants.dart';
 import 'package:geeblog/models/blog.dart';
+import 'package:get/get.dart';
 
 class BlogCard extends StatelessWidget {
   const BlogCard({
@@ -11,28 +12,31 @@ class BlogCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: const BoxConstraints(minWidth: double.infinity),
-      child: Container(
-        margin: const EdgeInsets.symmetric(
-            vertical: defaultPadding / 2, horizontal: defaultPadding / 2),
-        padding: const EdgeInsets.symmetric(
-            horizontal: defaultPadding / 2, vertical: defaultPadding / 2),
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
-          border: Border.all(color: Colors.grey.withOpacity(0.2)),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              blog.title,
-              style: const TextStyle(
-                fontSize: 20,
+    return InkWell(
+      onTap: () {
+        Get.toNamed('/article?id=${blog.id}');
+      },
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minWidth: double.infinity),
+        child: Container(
+          padding: const EdgeInsets.symmetric(
+              horizontal: defaultPadding / 2, vertical: defaultPadding / 2),
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            border: Border.all(color: Colors.grey.withOpacity(0.2)),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                blog.title,
+                style: const TextStyle(
+                  fontSize: 20,
+                ),
               ),
-            ),
-            Text(blog.content),
-          ],
+              Text(blog.content),
+            ],
+          ),
         ),
       ),
     );

@@ -14,4 +14,9 @@ class BlogsController extends GetxController with StateMixin<List<Blog>> {
     }
     super.onInit();
   }
+
+  Blog findBlog(String id) {
+    final blog = state!.firstWhere((blog) => blog.id == id);
+    return blog;
+  }
 }
