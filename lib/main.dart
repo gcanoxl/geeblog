@@ -1,6 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:geeblog/messages.dart';
+import 'package:geeblog/pages/home/home_screen.dart';
+import 'package:get/get.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+const supabaseUrl = 'https://nhykxaqbevsivnyuokbx.supabase.co';
+const supabaseKey =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5oeWt4YXFiZXZzaXZueXVva2J4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTAyMzAxMTcsImV4cCI6MjAyNTgwNjExN30.mnHiHTBKu46a6gh0PHmtmrbyEdHyemgajh5_8f6FRgc';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Supabase.initialize(
+    url: supabaseUrl,
+    anonKey: supabaseKey,
+  );
   runApp(const MyApp());
 }
 
@@ -10,27 +24,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+    return GetMaterialApp(
+      title: 'app_name'.tr,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      translations: Messages(),
+      locale: const Locale('zh', 'CN'),
+      home: const HomePage(),
     );
   }
 }
