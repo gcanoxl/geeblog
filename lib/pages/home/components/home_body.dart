@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geeblog/constants.dart';
-import 'package:geeblog/controllers/blogs/blogs_controller.dart';
+import 'package:geeblog/controllers/blogs_controller.dart';
 import 'package:geeblog/pages/home/components/blog_card.dart';
 import 'package:get/get.dart';
 

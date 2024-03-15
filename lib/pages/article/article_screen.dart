@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geeblog/controllers/blogs/blogs_controller.dart';
+import 'package:geeblog/controllers/blogs_controller.dart';
 import 'package:get/get.dart';
 
 import 'components/article_body.dart';

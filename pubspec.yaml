@@ -38,6 +38,7 @@ dependencies:
   get: ^4.6.6
   supabase_flutter: ^2.3.4
   flutter_markdown: ^0.6.20
+  email_validator: ^2.1.17
 
 dev_dependencies:
   flutter_test:

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geeblog/messages.dart';
 import 'package:geeblog/page_map.dart';
 import 'package:geeblog/pages/home/home_screen.dart';
+import 'package:geeblog/themes.dart';
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -25,15 +26,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      getPages: page_map,
+      getPages: pageMap,
       title: 'app_name'.tr,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: theme,
       translations: Messages(),
       locale: const Locale('zh', 'CN'),
       home: const HomePage(),
+      themeMode: ThemeMode.system,
     );
   }
 }
