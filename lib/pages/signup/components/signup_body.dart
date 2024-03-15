@@ -1,4 +1,3 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:geeblog/constants.dart';
 import 'package:get/get.dart';
@@ -47,9 +46,8 @@ class _SignupBodyState extends State<SignupBody> {
                       icon: const Icon(Icons.email),
                       label: Text('email'.tr),
                     ),
-                    validator: (value) => EmailValidator.validate(value!)
-                        ? null
-                        : 'invalid_email'.tr,
+                    validator: (value) =>
+                        GetUtils.isEmail(value!) ? null : 'invalid_email'.tr,
                   ),
                   TextFormField(
                     autovalidateMode: AutovalidateMode.onUserInteraction,

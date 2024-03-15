@@ -3,6 +3,9 @@ import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 const double defaultPadding = 24;
+const preloader = Center(
+  child: CircularProgressIndicator(),
+);
 
 final supabase = Supabase.instance.client;
 

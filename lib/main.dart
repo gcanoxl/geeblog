@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geeblog/controllers/auth_controller.dart';
 import 'package:geeblog/messages.dart';
 import 'package:geeblog/page_map.dart';
 import 'package:geeblog/pages/home/home_screen.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(AuthController());
     return GetMaterialApp(
       getPages: pageMap,
       title: 'app_name'.tr,
