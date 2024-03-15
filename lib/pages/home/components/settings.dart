@@ -17,6 +17,7 @@ class Settings extends StatelessWidget {
           SettingItem(
             onTap: () async {
               await supabase.auth.signOut();
+              Get.offAllNamed('/home');
             },
             title: 'logout'.tr,
             icon: Icons.logout,
