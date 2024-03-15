@@ -20,16 +20,7 @@ class AuthController extends GetxController with StateMixin<User> {
 
   @override
   Future<void> onInit() async {
-    if (supabase.auth.currentSession == null) return;
-
-    final userId = supabase.auth.currentUser!.id;
-
-    final data =
-        await supabase.from('profiles').select().eq('id', userId).single();
-    final user = User.fromJson(data);
-
-    change(user, status: RxStatus.success());
-
+    updateUser();
     super.onInit();
   }
 }
