@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:geeblog/controllers/blogs_controller.dart';
+import 'package:geeblog/pages/article/components/article_body.dart';
 import 'package:get/get.dart';
-
-import 'components/article_body.dart';
 
 class ArticleScreen extends StatelessWidget {
   static const String routeName = '/article';
@@ -13,7 +12,7 @@ class ArticleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final id = Get.parameters['id'];
     final BlogsController blogsController = Get.find();
-    final blog = blogsController.findBlog(id!);
+    final blog = blogsController.getBlogById(id!);
     return Scaffold(
       appBar: AppBar(
         title: Text(blog.title),

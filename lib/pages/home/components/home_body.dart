@@ -13,21 +13,21 @@ class HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final BlogsController bc = Get.put(BlogsController());
-    return bc.obx(
-      (blogs) => Padding(
+    return Obx(
+      () => Padding(
         padding: EdgeInsets.symmetric(
           horizontal: Responsive.isDesktop(context) ? 0 : defaultPadding / 2,
           vertical: defaultPadding / 2,
         ),
-        child: ListView.builder(
-          itemCount: blogs!.length,
-          itemBuilder: (context, index) {
-            return BlogCard(blog: blogs[index]);
-          },
-        ),
+        child: bc.blogList == null
+            ? preloader
+            : ListView.builder(
+                itemCount: bc.blogList.length,
+                itemBuilder: (context, index) {
+                  return BlogCard(blog: bc.blogList[index]);
+                },
+              ),
       ),
-      onLoading: const Center(child: CircularProgressIndicator()),
-      onEmpty: const Text('No data found'),
     );
   }
 }
