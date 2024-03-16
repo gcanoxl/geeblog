@@ -16,15 +16,17 @@ class ProfileBody extends StatelessWidget {
         vertical: defaultPadding,
         horizontal: defaultPadding,
       ),
-      child: Obx(() => Column(
-            children: [
-              authController.session == null
-                  ? const LoginCard()
-                  : ProfileCard(profileId: authController.session!.user.id),
-              const SizedBox(height: defaultPadding * 2),
-              const Settings(),
-            ],
-          )),
+      child: Obx(
+        () => Column(
+          children: [
+            authController.session == null
+                ? const LoginCard()
+                : ProfileCard(profileId: authController.session!.user.id),
+            const SizedBox(height: defaultPadding * 2),
+            const Settings(),
+          ],
+        ),
+      ),
     );
     // return Text(c.user.toString());
   }

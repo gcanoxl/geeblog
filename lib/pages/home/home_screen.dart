@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:geeblog/pages/home/components/home_body.dart';
 import 'package:geeblog/pages/home/components/profile_body.dart';
+import 'package:geeblog/responsive.dart';
 import 'package:get/utils.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,21 +17,41 @@ class _HomePageState extends State<HomePage> {
     return DefaultTabController(
       length: 2,
       initialIndex: 0,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('app_name'.tr),
+      child: Responsive(
+        desktop: const Scaffold(
+          body: HomeBody(),
         ),
-        bottomNavigationBar: TabBar(tabs: [
-          Tab(icon: const Icon(Icons.home), text: 'home'.tr),
-          // Tab(icon: const Icon(Icons.search), text: 'search'.tr),
-          Tab(icon: const Icon(Icons.person), text: 'profile'.tr),
-        ]),
-        body: const TabBarView(
-          children: [
-            HomeBody(),
-            // SearchBody(),
-            ProfileBody(),
-          ],
+        tablet: Scaffold(
+          body: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 240, minWidth: 200),
+                child: const ProfileBody(),
+              ),
+              const Expanded(
+                flex: 2,
+                child: HomeBody(),
+              ),
+            ],
+          ),
+        ),
+        mobile: Scaffold(
+          appBar: AppBar(
+            title: Text('app_name'.tr),
+          ),
+          bottomNavigationBar: TabBar(tabs: [
+            Tab(icon: const Icon(Icons.home), text: 'home'.tr),
+            // Tab(icon: const Icon(Icons.search), text: 'search'.tr),
+            Tab(icon: const Icon(Icons.person), text: 'profile'.tr),
+          ]),
+          body: const TabBarView(
+            children: [
+              HomeBody(),
+              // SearchBody(),
+              ProfileBody(),
+            ],
+          ),
         ),
       ),
     );

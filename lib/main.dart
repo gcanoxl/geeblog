@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(AuthController());
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       getPages: pageMap,
       title: 'app_name'.tr,
       theme: theme,
