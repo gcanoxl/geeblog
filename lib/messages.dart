@@ -24,6 +24,7 @@ class Messages extends Translations {
           'password_do_not_match': 'Passwords do not match',
           'logout': 'Logout',
           'publish': 'Publish',
+          'created_at': 'Created At',
         },
         'zh_CN': {
           'app_name': '阿凌博客',
@@ -45,6 +46,7 @@ class Messages extends Translations {
           'password_do_not_match': '密码不匹配',
           'logout': '退出登录',
           'publish': '发布',
+          'created_at': '创建于',
         },
       };
 }

@@ -10,8 +10,14 @@ class BlogCard extends StatelessWidget {
   });
   final Blog blog;
 
+  parseTimestamp(String timestamp) {
+    final DateTime date = DateTime.parse(timestamp).toLocal();
+    return '${date.year}-${date.month}-${date.day} ${date.hour}:${date.minute}';
+  }
+
   @override
   Widget build(BuildContext context) {
+    final String time = parseTimestamp(blog.created_at);
     return InkWell(
       onTap: () {
         Get.toNamed('/article?id=${blog.id}');
@@ -19,6 +25,7 @@ class BlogCard extends StatelessWidget {
       child: ConstrainedBox(
         constraints: const BoxConstraints(minWidth: double.infinity),
         child: Container(
+          margin: const EdgeInsets.only(bottom: defaultPadding / 2),
           padding: const EdgeInsets.symmetric(
               horizontal: defaultPadding / 2, vertical: defaultPadding / 2),
           decoration: BoxDecoration(
@@ -31,9 +38,18 @@ class BlogCard extends StatelessWidget {
               Text(
                 blog.title,
                 style: const TextStyle(
-                  fontSize: 20,
+                  fontSize: defaultPadding,
                 ),
               ),
+              const SizedBox(height: defaultPadding / 2),
+              Text(
+                '${'created_at'.tr}: $time',
+                style: TextStyle(
+                  fontSize: defaultPadding * 0.6,
+                  color: Colors.black.withOpacity(defaultOpacity),
+                ),
+              ),
+              const SizedBox(height: defaultPadding / 2),
               Text(blog.content),
             ],
           ),
