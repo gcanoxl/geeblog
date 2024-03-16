@@ -23,6 +23,7 @@ class Messages extends Translations {
               'Invalid Username: Username must be composed of letters, numbers, and underscores, and be 2-24 characters long',
           'password_do_not_match': 'Passwords do not match',
           'logout': 'Logout',
+          'publish': 'Publish',
         },
         'zh_CN': {
           'app_name': '阿凌博客',
@@ -43,6 +44,7 @@ class Messages extends Translations {
           'invalid_username': '无效用户名：用户名必须由汉字、字母、数字和下划线组成，长度在2-24个字符',
           'password_do_not_match': '密码不匹配',
           'logout': '退出登录',
+          'publish': '发布',
         },
       };
 }

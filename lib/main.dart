@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       theme: theme,
       translations: Messages(),
       locale: const Locale('zh', 'CN'),
-      home: const HomePage(),
+      home: const HomeScreen(),
       themeMode: ThemeMode.system,
     );
   }

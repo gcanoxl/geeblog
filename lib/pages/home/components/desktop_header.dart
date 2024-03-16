@@ -48,6 +48,12 @@ class DesktopHeader extends StatelessWidget {
                         children: [
                           ProfileCard(profileId: authController.profile!.id),
                           const SizedBox(width: defaultPadding),
+                          if (authController.profile != null &&
+                              authController.profile!.is_admin)
+                            TextButton(
+                              onPressed: () => Get.offAllNamed('/edit'),
+                              child: Text('publish'.tr),
+                            ),
                           TextButton(
                             onPressed: () async {
                               await authController.signOut();

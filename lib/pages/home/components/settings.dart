@@ -14,6 +14,15 @@ class Settings extends StatelessWidget {
     return Obx(
       () => Column(
         children: [
+          if (authController.profile != null &&
+              authController.profile!.is_admin)
+            SettingItem(
+              onTap: () async {
+                Get.offAllNamed('/edit');
+              },
+              title: 'publish'.tr,
+              icon: Icons.add,
+            ),
           if (authController.session != null)
             SettingItem(
               onTap: () async {
