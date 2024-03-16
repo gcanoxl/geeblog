@@ -9,8 +9,25 @@ class EditScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: EditBody(),
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.keyboard_return),
+        ),
+        title: const Text('Edit'),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.save),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.publish),
+          ),
+        ],
+      ),
+      body: const EditBody(),
     );
   }
 }
