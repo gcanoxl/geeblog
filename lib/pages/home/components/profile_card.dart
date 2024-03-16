@@ -20,9 +20,10 @@ class ProfileCard extends StatelessWidget {
 
   Widget _buildProfileCard(User user) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         CircleAvatar(
-          radius: defaultPadding * 1.5,
+          radius: defaultPadding,
           child: Text(
             user.username.substring(0, 1).toUpperCase(),
             style: const TextStyle(
@@ -31,16 +32,11 @@ class ProfileCard extends StatelessWidget {
           ),
         ),
         const SizedBox(width: defaultPadding),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              user.username,
-              style: const TextStyle(
-                fontSize: defaultPadding,
-              ),
-            ),
-          ],
+        Text(
+          user.username,
+          style: const TextStyle(
+            fontSize: defaultPadding,
+          ),
         )
       ],
     );

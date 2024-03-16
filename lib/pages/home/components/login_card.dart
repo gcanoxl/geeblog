@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:geeblog/constants.dart';
 import 'package:geeblog/pages/login/login_screen.dart';
+import 'package:geeblog/responsive.dart';
 import 'package:get/get.dart';
 
 class LoginCard extends StatelessWidget {
@@ -15,8 +16,10 @@ class LoginCard extends StatelessWidget {
         Get.toNamed(LoginScreen.routeName);
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(
-          horizontal: defaultPadding,
+        padding: EdgeInsets.symmetric(
+          horizontal: Responsive.isTablet(context)
+              ? defaultPadding / 2
+              : defaultPadding,
           vertical: defaultPadding,
         ),
         decoration: BoxDecoration(

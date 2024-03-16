@@ -12,7 +12,11 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('login'.tr)),
-      body: const LoginBody(),
+      body: Center(
+        child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 400),
+            child: const LoginBody()),
+      ),
     );
   }
 }

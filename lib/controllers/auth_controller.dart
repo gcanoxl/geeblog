@@ -40,7 +40,7 @@ class AuthController extends GetxController {
     try {
       await supabase.auth.signInWithPassword(email: email, password: password);
       _session.value = supabase.auth.currentSession;
-      _updateProfile();
+      await _updateProfile();
     } catch (e) {
       rethrow;
     }

@@ -90,7 +90,7 @@ class _LoginBodyState extends State<LoginBody> {
       _isLoading = true;
     });
     try {
-      authController.signIn(
+      await authController.signIn(
         email: emailController.text,
         password: passwordController.text,
       );

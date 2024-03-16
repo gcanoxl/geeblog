@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geeblog/pages/home/components/desktop_header.dart';
 import 'package:geeblog/pages/home/components/home_body.dart';
 import 'package:geeblog/pages/home/components/profile_body.dart';
 import 'package:geeblog/responsive.dart';
@@ -14,29 +15,41 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      initialIndex: 0,
-      child: Responsive(
-        desktop: const Scaffold(
-          body: HomeBody(),
-        ),
-        tablet: Scaffold(
-          body: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 240, minWidth: 200),
-                child: const ProfileBody(),
+    return Responsive(
+      desktop: Scaffold(
+        body: Column(
+          children: [
+            const DesktopHeader(),
+            Expanded(
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 840),
+                  child: const HomeBody(),
+                ),
               ),
-              const Expanded(
-                flex: 2,
-                child: HomeBody(),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
-        mobile: Scaffold(
+      ),
+      tablet: Scaffold(
+        body: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 240, minWidth: 200),
+              child: const ProfileBody(),
+            ),
+            const Expanded(
+              flex: 2,
+              child: HomeBody(),
+            ),
+          ],
+        ),
+      ),
+      mobile: DefaultTabController(
+        length: 2,
+        initialIndex: 0,
+        child: Scaffold(
           appBar: AppBar(
             title: Text('app_name'.tr),
           ),
