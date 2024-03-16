@@ -90,12 +90,11 @@ class _LoginBodyState extends State<LoginBody> {
       _isLoading = true;
     });
     try {
-      await supabase.auth.signInWithPassword(
+      authController.signIn(
         email: emailController.text,
         password: passwordController.text,
       );
-      Get.offAllNamed('/home');
-      authController.updateUser();
+      Get.back();
     } on AuthException catch (e) {
       errorSnackBar(e.message);
     } catch (e) {
