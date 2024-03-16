@@ -10,6 +10,10 @@ class ArticleBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MarkdownBody(data: content);
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: MarkdownBody(data: content),
+      ),
+    );
   }
 }

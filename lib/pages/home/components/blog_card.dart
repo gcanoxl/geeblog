@@ -26,9 +26,9 @@ class BlogCard extends StatelessWidget {
           Get.toNamed('/article?id=${blog.id}');
         },
         child: ConstrainedBox(
-          constraints: BoxConstraints(minWidth: double.infinity),
+          constraints: const BoxConstraints(minWidth: double.infinity),
           child: Container(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: defaultPadding,
               vertical: defaultPadding / 2,
             ),
@@ -37,13 +37,13 @@ class BlogCard extends StatelessWidget {
               children: [
                 Text(
                   blog.title,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: defaultPadding * 0.8,
                     color: boldTextColor,
                     // fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: defaultPadding / 2),
+                const SizedBox(height: defaultPadding / 2),
                 Text(
                   blog.content.replaceAll('\n\n', '\n'),
                   maxLines: 3,
@@ -54,20 +54,20 @@ class BlogCard extends StatelessWidget {
                     color: boldTextColor.withOpacity(0.9),
                   ),
                 ),
-                SizedBox(height: defaultPadding / 2),
+                const SizedBox(height: defaultPadding / 2),
                 Row(
                   children: [
                     Text(
                       time,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: defaultPadding * 0.54,
                         color: infoTextColor,
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     IconButton(
                       onPressed: () {},
-                      icon: Icon(Icons.add_comment_outlined),
+                      icon: const Icon(Icons.add_comment_outlined),
                       iconSize: defaultPadding * 0.8,
                       color: boldTextColor,
                     ),
@@ -75,13 +75,13 @@ class BlogCard extends StatelessWidget {
                       iconSize: defaultPadding * 0.8,
                       color: boldTextColor,
                       onPressed: () {},
-                      icon: Icon(Icons.share_outlined),
+                      icon: const Icon(Icons.share_outlined),
                     ),
                     IconButton(
                       iconSize: defaultPadding * 0.8,
                       color: boldTextColor,
                       onPressed: () {},
-                      icon: Icon(Icons.thumb_up_alt_outlined),
+                      icon: const Icon(Icons.thumb_up_alt_outlined),
                     ),
                   ],
                 ),
