@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Expanded(
               child: Center(
                 child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 840),
+                  constraints: const BoxConstraints(maxWidth: 800),
                   child: const HomeBody(),
                 ),
               ),

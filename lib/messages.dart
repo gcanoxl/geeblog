@@ -32,7 +32,7 @@ class Messages extends Translations {
           'search': '搜索',
           'explore': '浏览',
           'profile': '个人中心',
-          'login': '立即登录',
+          'login': '登录',
           'username': '用户名',
           'password': '密码',
           'signup_slogon': '没有账号？五秒注册',

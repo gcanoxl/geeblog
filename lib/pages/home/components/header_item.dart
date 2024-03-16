@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geeblog/constants.dart';
+import 'package:geeblog/themes.dart';
 
 class HeaderItem extends StatefulWidget {
   const HeaderItem({
@@ -18,7 +19,6 @@ class _HeaderItemState extends State<HeaderItem> {
   bool isHovered = false;
   @override
   Widget build(BuildContext context) {
-    final primaryColor = Theme.of(context).primaryColor;
     return InkWell(
       onTap: () {},
       onHover: (value) {
@@ -31,7 +31,7 @@ class _HeaderItemState extends State<HeaderItem> {
           border: Border(
             bottom: BorderSide(
               color: widget.isSelected || isHovered
-                  ? primaryColor
+                  ? dividerColor
                   : Colors.transparent,
               width: 2,
             ),
@@ -43,7 +43,8 @@ class _HeaderItemState extends State<HeaderItem> {
         child: Text(
           widget.title,
           style: const TextStyle(
-            fontSize: defaultPadding * 0.8,
+            fontSize: defaultPadding * 0.6,
+            color: menuTextColor,
           ),
         ),
       ),

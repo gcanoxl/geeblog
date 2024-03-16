@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:geeblog/constants.dart';
 import 'package:geeblog/models/blog.dart';
+import 'package:geeblog/themes.dart';
 import 'package:get/get.dart';
 
 class BlogCard extends StatelessWidget {
@@ -32,29 +32,59 @@ class BlogCard extends StatelessWidget {
               horizontal: defaultPadding / 2,
               vertical: defaultPadding / 2,
             ),
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-              border: Border.all(color: Colors.grey.withOpacity(0.2)),
-            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   blog.title,
                   style: const TextStyle(
-                    fontSize: defaultPadding,
+                    fontSize: defaultPadding * 0.8,
+                    color: boldTextColor,
+                    // fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: defaultPadding / 2),
                 Text(
-                  '${'created_at'.tr}: $time',
+                  blog.content.replaceAll('\n\n', '\n'),
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: defaultPadding * 0.6,
-                    color: Colors.black.withOpacity(defaultOpacity),
+                    height: 1.8,
+                    color: boldTextColor.withOpacity(0.9),
                   ),
                 ),
                 const SizedBox(height: defaultPadding / 2),
-                MarkdownBody(data: blog.content),
+                Row(
+                  children: [
+                    Text(
+                      time,
+                      style: const TextStyle(
+                        fontSize: defaultPadding * 0.54,
+                        color: infoTextColor,
+                      ),
+                    ),
+                    const Spacer(),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.add_comment_outlined),
+                      iconSize: defaultPadding * 0.8,
+                      color: boldTextColor,
+                    ),
+                    IconButton(
+                      iconSize: defaultPadding * 0.8,
+                      color: boldTextColor,
+                      onPressed: () {},
+                      icon: const Icon(Icons.share_outlined),
+                    ),
+                    IconButton(
+                      iconSize: defaultPadding * 0.8,
+                      color: boldTextColor,
+                      onPressed: () {},
+                      icon: const Icon(Icons.thumb_up_alt_outlined),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

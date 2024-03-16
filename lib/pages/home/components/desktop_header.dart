@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:geeblog/components/light_small_button.dart';
 import 'package:geeblog/constants.dart';
 import 'package:geeblog/controllers/auth_controller.dart';
 import 'package:geeblog/pages/home/components/header_item.dart';
 import 'package:geeblog/pages/home/components/profile_card.dart';
+import 'package:geeblog/themes.dart';
 import 'package:get/get.dart';
 
 class DesktopHeader extends StatelessWidget {
@@ -15,13 +17,7 @@ class DesktopHeader extends StatelessWidget {
     final authController = Get.find<AuthController>();
     return Container(
       decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            offset: const Offset(0, 4),
-            blurRadius: 24,
-          ),
-        ],
+        border: const Border(bottom: BorderSide(color: dividerColor)),
         color: Theme.of(context).scaffoldBackgroundColor,
       ),
       height: defaultPadding * 3,
@@ -39,26 +35,25 @@ class DesktopHeader extends StatelessWidget {
               const Spacer(),
               Obx(
                 () => authController.profile == null
-                    ? ElevatedButton(
-                        onPressed: () {
-                          Get.toNamed('/login');
-                        },
-                        child: Text('login'.tr))
+                    ? LightSmallButton(
+                        onPressed: () => Get.toNamed('/login'),
+                        title: 'login'.tr,
+                      )
                     : Row(
                         children: [
                           ProfileCard(profileId: authController.profile!.id),
                           const SizedBox(width: defaultPadding),
                           if (authController.profile != null &&
                               authController.profile!.is_admin)
-                            TextButton(
+                            LightSmallButton(
                               onPressed: () => Get.offAllNamed('/edit'),
-                              child: Text('publish'.tr),
+                              title: 'publish'.tr,
                             ),
-                          TextButton(
-                            onPressed: () async {
-                              await authController.signOut();
-                            },
-                            child: Text('logout'.tr),
+                          const SizedBox(width: defaultPadding * 0.4),
+                          LightSmallButton(
+                            onPressed: () async =>
+                                await authController.signOut(),
+                            title: 'logout'.tr,
                           )
                         ],
                       ),
