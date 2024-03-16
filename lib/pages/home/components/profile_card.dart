@@ -13,18 +13,9 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final authController = Get.find<AuthController>();
-    return FutureBuilder<User>(
-      future: authController.getUserById(profileId),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const CircularProgressIndicator();
-        }
-        if (snapshot.hasError) {
-          return Text('Error: ${snapshot.error}');
-        }
-        return _buildProfileCard(snapshot.data!);
-      },
-    );
+    return Obx(() => authController.profile == null
+        ? const CircularProgressIndicator()
+        : _buildProfileCard(authController.profile!));
   }
 
   Widget _buildProfileCard(User user) {

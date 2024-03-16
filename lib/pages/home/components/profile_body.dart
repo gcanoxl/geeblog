@@ -18,11 +18,10 @@ class ProfileBody extends StatelessWidget {
       ),
       child: Obx(() => Column(
             children: [
-              authController.session.value == null
+              authController.session == null
                   ? const LoginCard()
-                  : ProfileCard(
-                      profileId: authController.session.value!.user.id),
-              SizedBox(height: defaultPadding * 2),
+                  : ProfileCard(profileId: authController.session!.user.id),
+              const SizedBox(height: defaultPadding * 2),
               const Settings(),
             ],
           )),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:geeblog/constants.dart';
 import 'package:geeblog/controllers/auth_controller.dart';
 import 'package:geeblog/pages/home/components/setting_item.dart';
 import 'package:get/get.dart';
@@ -15,7 +14,7 @@ class Settings extends StatelessWidget {
     return Obx(
       () => Column(
         children: [
-          if (authController.session.value != null)
+          if (authController.session != null)
             SettingItem(
               onTap: () async {
                 await authController.signOut();
