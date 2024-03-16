@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:geeblog/constants.dart';
 import 'package:geeblog/controllers/blogs_controller.dart';
 import 'package:geeblog/pages/home/components/blog_card.dart';
-import 'package:geeblog/responsive.dart';
 import 'package:get/get.dart';
 
 class HomeBody extends StatelessWidget {
@@ -15,8 +14,7 @@ class HomeBody extends StatelessWidget {
     final BlogsController bc = Get.put(BlogsController());
     return Obx(
       () => Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: Responsive.isDesktop(context) ? 0 : defaultPadding / 2,
+        padding: const EdgeInsets.symmetric(
           vertical: defaultPadding / 2,
         ),
         child: bc.blogList == null

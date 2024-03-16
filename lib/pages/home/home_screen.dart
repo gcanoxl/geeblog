@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geeblog/pages/home/components/desktop_header.dart';
 import 'package:geeblog/pages/home/components/home_body.dart';
-import 'package:geeblog/pages/home/components/profile_body.dart';
 import 'package:geeblog/responsive.dart';
 import 'package:get/utils.dart';
 
@@ -31,26 +30,22 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      mobile: DefaultTabController(
-        length: 2,
-        initialIndex: 0,
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text('app_name'.tr),
+      mobile: Scaffold(
+        appBar: AppBar(
+          title: Text('app_name'.tr),
+          // TODO: icon color
+          leading: IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.menu),
           ),
-          bottomNavigationBar: TabBar(tabs: [
-            Tab(icon: const Icon(Icons.home), text: 'home'.tr),
-            // Tab(icon: const Icon(Icons.search), text: 'search'.tr),
-            Tab(icon: const Icon(Icons.person), text: 'profile'.tr),
-          ]),
-          body: const TabBarView(
-            children: [
-              HomeBody(),
-              // SearchBody(),
-              ProfileBody(),
-            ],
-          ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.search),
+            ),
+          ],
         ),
+        body: const HomeBody(),
       ),
     );
   }
