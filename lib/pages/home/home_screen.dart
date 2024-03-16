@@ -31,21 +31,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      tablet: Scaffold(
-        body: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 240, minWidth: 200),
-              child: const ProfileBody(),
-            ),
-            const Expanded(
-              flex: 2,
-              child: HomeBody(),
-            ),
-          ],
-        ),
-      ),
       mobile: DefaultTabController(
         length: 2,
         initialIndex: 0,

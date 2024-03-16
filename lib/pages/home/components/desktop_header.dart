@@ -23,7 +23,7 @@ class DesktopHeader extends StatelessWidget {
       height: defaultPadding * 3,
       child: Center(
         child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 840),
+          constraints: const BoxConstraints(maxWidth: 800),
           child: Row(
             children: [
               HeaderItem(
