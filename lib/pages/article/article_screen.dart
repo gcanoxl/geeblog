@@ -17,18 +17,20 @@ class ArticleScreen extends StatelessWidget {
       future: blogsController.loadBlogById(id!),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          final blog = snapshot.data!;
-          return Scaffold(
-            appBar: AppBar(
-              title: Text(blog.title),
-            ),
-            body: ArticleBody(
-              content: blog.content,
-            ),
-          );
-        } else {
-          return preloader;
+          if (snapshot.data != null) {
+            final blog = snapshot.data!;
+            return Scaffold(
+              appBar: AppBar(
+                title: Text(blog.title),
+              ),
+              body: ArticleBody(
+                content: blog.content,
+              ),
+            );
+          }
         }
+
+        return preloader;
       },
     );
   }
