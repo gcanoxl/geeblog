@@ -6,6 +6,7 @@ import 'package:get/utils.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+  static const routeName = '/home';
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -33,7 +34,6 @@ class _HomeScreenState extends State<HomeScreen> {
       mobile: Scaffold(
         appBar: AppBar(
           title: Text('app_name'.tr),
-          // TODO: icon color
           leading: IconButton(
             onPressed: () {},
             icon: const Icon(Icons.menu),

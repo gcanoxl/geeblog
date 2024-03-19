@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geeblog/controllers/auth_controller.dart';
+import 'package:geeblog/controllers/init_bindings.dart';
 import 'package:geeblog/messages.dart';
 import 'package:geeblog/pages/home/home_screen.dart';
 import 'package:geeblog/routes.dart';
@@ -26,15 +26,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(AuthController());
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       getPages: routes,
       title: 'app_name'.tr,
       theme: theme,
+      initialBinding: InitBindings(),
       translations: Messages(),
       locale: const Locale('zh', 'CN'),
-      home: const HomeScreen(),
+      initialRoute: HomeScreen.routeName,
       themeMode: ThemeMode.system,
     );
   }

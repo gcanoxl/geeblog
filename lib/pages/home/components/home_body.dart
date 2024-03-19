@@ -11,7 +11,7 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final BlogsController bc = Get.put(BlogsController());
+    final BlogsController bc = Get.find<BlogsController>();
     return Obx(
       () => Padding(
         padding: const EdgeInsets.symmetric(
