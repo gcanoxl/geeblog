@@ -6,7 +6,7 @@ import 'package:geeblog/pages/login/login_screen.dart';
 import 'package:geeblog/pages/signup/signup_screen.dart';
 import 'package:get/get.dart';
 
-final pageMap = [
+final routes = [
   GetPage(name: '/home', page: () => const HomeScreen()),
   GetPage(
       name: '/article',

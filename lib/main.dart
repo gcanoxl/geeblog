@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:geeblog/controllers/auth_controller.dart';
 import 'package:geeblog/messages.dart';
-import 'package:geeblog/page_map.dart';
 import 'package:geeblog/pages/home/home_screen.dart';
+import 'package:geeblog/routes.dart';
 import 'package:geeblog/themes.dart';
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
     Get.put(AuthController());
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      getPages: pageMap,
+      getPages: routes,
       title: 'app_name'.tr,
       theme: theme,
       translations: Messages(),
