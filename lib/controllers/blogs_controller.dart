@@ -7,13 +7,9 @@ class BlogsController extends GetxController {
 
   get blogList => _blogList;
 
-  Blog getBlogById(String id) {
-    final blog = _blogList.firstWhereOrNull((element) => element.id == id);
-    if (blog != null) {
-      return blog;
-    } else {
-      throw Exception('Blog not found');
-    }
+  Future<Blog> loadBlogById(String id) async {
+    final data = await supabase.from('blogs').select().eq('id', id).single();
+    return Blog.fromJson(data);
   }
 
   loadAllBlogs() async {

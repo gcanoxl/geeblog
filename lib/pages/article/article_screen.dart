@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geeblog/constants.dart';
 import 'package:geeblog/controllers/blogs_controller.dart';
 import 'package:geeblog/pages/article/components/article_body.dart';
 import 'package:get/get.dart';
@@ -12,14 +13,23 @@ class ArticleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final id = Get.parameters['id'];
     final BlogsController blogsController = Get.find();
-    final blog = blogsController.getBlogById(id!);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(blog.title),
-      ),
-      body: ArticleBody(
-        content: blog.content,
-      ),
+    return FutureBuilder(
+      future: blogsController.loadBlogById(id!),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          final blog = snapshot.data!;
+          return Scaffold(
+            appBar: AppBar(
+              title: Text(blog.title),
+            ),
+            body: ArticleBody(
+              content: blog.content,
+            ),
+          );
+        } else {
+          return preloader;
+        }
+      },
     );
   }
 }
