@@ -27,9 +27,14 @@ class ArticleScreen extends StatelessWidget {
                 content: blog.content,
               ),
             );
+          } else {
+            return Scaffold(
+              body: Center(
+                child: Text('Error loading blog: $id'),
+              ),
+            );
           }
         }
-
         return preloader;
       },
     );

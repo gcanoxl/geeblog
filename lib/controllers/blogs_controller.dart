@@ -8,6 +8,10 @@ class BlogsController extends GetxController {
   get blogList => _blogList;
 
   Future<Blog> loadBlogById(String id) async {
+    final blog = _blogList.firstWhereOrNull((blog) => blog.id == id);
+    if (blog != null) {
+      return blog;
+    }
     final data = await supabase.from('blogs').select().eq('id', id).single();
     return Blog.fromJson(data);
   }
