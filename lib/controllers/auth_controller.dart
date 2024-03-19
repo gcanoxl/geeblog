@@ -1,4 +1,5 @@
 import 'package:geeblog/constants.dart';
+import 'package:geeblog/controllers/blogs_controller.dart';
 import 'package:geeblog/models/user.dart';
 import 'package:get/get.dart';
 import 'package:supabase_flutter/supabase_flutter.dart' hide User;
@@ -19,6 +20,8 @@ class AuthController extends GetxController {
           await supabase.from('profiles').select().eq('id', userId).single();
       _profile.value = User.fromJson(data);
     }
+    final BlogsController blogsController = Get.find();
+    await blogsController.loadAllBlogs();
   }
 
   @override
